@@ -8,7 +8,7 @@ public class PlayerController : MonoBehaviour {
     private float moveVelocity;
     public float jumpHeight;
 
-    public Transform groundCheck;
+    public Transform groundCheck; //verificador de chao
     public float groundCheckRadius;
     public LayerMask whatIsGround;
     private bool grounded;
