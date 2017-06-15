@@ -19,7 +19,7 @@ public class HurtPlayerOnContact : MonoBehaviour {
     void OnTriggerEnter2D (Collider2D other) {
         if(other.name == "Player") {
             HealthManager.hurtPlayer(damageToGive);
-            other.GetComponent<AudioSource>().Play();
+            other.GetComponents<AudioSource>()[0].Play();
         }
     }
 }

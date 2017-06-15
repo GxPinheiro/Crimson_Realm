@@ -13,6 +13,7 @@ public class PlayerController : MonoBehaviour {
     public LayerMask whatIsGround;
     private bool grounded;
 
+    private bool doubleJumpPowerUpGot;
     private bool doubleJumped;
 
     private Animator anim;
@@ -32,6 +33,7 @@ public class PlayerController : MonoBehaviour {
         anim = GetComponent<Animator>();
         chargeTimeCounter = 0;
         facingRight = true;
+        doubleJumpPowerUpGot = false;
 	}
 
     void FixedUpdate () {
@@ -51,7 +53,7 @@ public class PlayerController : MonoBehaviour {
             jump();
         }
 
-        if (Input.GetKeyDown(KeyCode.Space) && !doubleJumped && !grounded){
+        if (Input.GetKeyDown(KeyCode.Space) && !doubleJumped && !grounded && doubleJumpPowerUpGot){
             jump();
             doubleJumped = true;
         }
@@ -114,7 +116,12 @@ public class PlayerController : MonoBehaviour {
     public void jump() {
 
         GetComponent<Rigidbody2D>().velocity = new Vector2(GetComponent<Rigidbody2D>().velocity.x, jumpHeight);
+        GetComponents<AudioSource>()[1].Play();
 
+    }
+
+    public void activateDoubleJumpPowerUP() {
+        doubleJumpPowerUpGot = true;
     }
 
 }
