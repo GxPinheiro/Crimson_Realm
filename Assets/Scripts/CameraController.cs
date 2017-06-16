@@ -10,6 +10,10 @@ public class CameraController : MonoBehaviour {
 
     public float xOffset;
     public float yOffset;
+    public float cameraXMin;
+    public float cameraXMax;
+    public float cameraYMin;
+    public float cameraYMax;
 
 	// Use this for initialization
 	void Start () {
@@ -20,8 +24,11 @@ public class CameraController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        if (isFollowing) {
-            transform.position = new Vector3(player.transform.position.x + xOffset, player.transform.position.y + yOffset, transform.position.z);
+        if (isFollowing) { //então, aqui ele atualiza a posição da camera a cada quadro e limita o movimento com a função Clamp
+            transform.position = new Vector3(Mathf.Clamp(player.transform.position.x + xOffset, cameraXMin, cameraXMax),  // no caso do X, por exemplo, ele poe o valor do X no espaço e depois diz
+                                             Mathf.Clamp(player.transform.position.y + yOffset, cameraYMin, cameraYMax),  // quais são os limites com Min e Max (o mesmo pro Y e pro Z não precisa luls)
+                                             transform.position.z);
         }
+
 	}
 }

@@ -28,13 +28,24 @@ public class PlayerController : MonoBehaviour {
 
     private bool facingRight;
 
-	// Use this for initialization
-	void Start () {
+    private CameraController gameCamera;
+    private float gameCameraHeight;
+    private float gameCameraWidth;
+    private float playerXMin;
+    private float playerXMax;
+    private float playerYMin;
+    private float playerYMax;
+
+
+    // Use this for initialization
+    void Start () {
+        
         anim = GetComponent<Animator>();
         chargeTimeCounter = 0;
         facingRight = true;
         doubleJumpPowerUpGot = false;
-	}
+
+    }
 
     void FixedUpdate () {
         grounded = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, whatIsGround);
