@@ -19,7 +19,7 @@ public class DoubleJumpPowerUpController : MonoBehaviour {
         if (other.tag == "Player")
         {
             AudioSource.PlayClipAtPoint(GetComponent<AudioSource>().clip, GetComponent<Transform>().position);
-            Destroy(gameObject);
+            Destroy(gameObject); //Destroy Square
             other.GetComponent<PlayerController>().activateDoubleJumpPowerUP();
         }
     }
