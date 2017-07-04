@@ -28,14 +28,10 @@ public class PlayerController : MonoBehaviour {
 
     private bool facingRight;
 
-    private CameraController gameCamera;
-    private float gameCameraHeight;
-    private float gameCameraWidth;
-    private float playerXMin;
-    private float playerXMax;
-    private float playerYMin;
-    private float playerYMax;
-
+    public float knockbackForce;
+    public float knockbackDuration;
+    public float knockbackCount { get; set; } //isso é um negócio loko que implementa uma property pública com uma variável privada "subentendida"
+    public bool knockFromRight { get; set; } //ídem
 
     // Use this for initialization
     void Start () {
@@ -44,6 +40,7 @@ public class PlayerController : MonoBehaviour {
         chargeTimeCounter = 0;
         facingRight = true;
         doubleJumpPowerUpGot = false;
+
 
     }
 
@@ -81,7 +78,20 @@ public class PlayerController : MonoBehaviour {
             moveVelocity = -moveSpeed;
         }
 
-        GetComponent<Rigidbody2D>().velocity = new Vector2(moveVelocity, GetComponent<Rigidbody2D>().velocity.y);
+        //tratamento de knockback: em cada quadro verifica o contador para tomar knockback apenas quando o player não estiver no meio de um knockback
+        //a partir do primeiro else ele controla o acontecimendo e a direção do knockback
+        if(knockbackCount <= 0) { 
+            GetComponent<Rigidbody2D>().velocity = new Vector2(moveVelocity, GetComponent<Rigidbody2D>().velocity.y);
+        } else {
+            if (knockFromRight)
+            {
+                GetComponent<Rigidbody2D>().velocity = new Vector2(-knockbackForce, knockbackForce);
+            }
+            else {
+                GetComponent<Rigidbody2D>().velocity = new Vector2(knockbackForce, knockbackForce);
+            }
+            knockbackCount -= Time.deltaTime;
+        }
 
         anim.SetFloat("Speed", Mathf.Abs(GetComponent<Rigidbody2D>().velocity.x));
 

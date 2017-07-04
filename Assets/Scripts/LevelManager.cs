@@ -47,6 +47,7 @@ public class LevelManager : MonoBehaviour {
         yield return new WaitForSeconds(respawnDelay);
         player.gameObject.SetActive(true);
         player.transform.position = currentCheckpoint.transform.position;
+        player.knockbackCount = 0; //sem isso ele da respawn sofrendo um knockback do nada
         player.enabled = true;
         player.GetComponent<Renderer>().enabled = true;
         healthManager.fullHealth();

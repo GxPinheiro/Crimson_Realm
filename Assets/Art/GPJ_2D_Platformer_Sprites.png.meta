@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 72552fff798322b42a8f8f544bd72e50
-timeCreated: 1497554922
+timeCreated: 1499119938
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -17,6 +17,7 @@ TextureImporter:
     21300020: ChargedStar
     21300022: Sword
     21300024: DoubleJumpPowerUp
+    21300026: Level Exit
   serializedVersion: 4
   mipmaps:
     mipMapMode: 0
@@ -248,6 +249,19 @@ TextureImporter:
         height: 16
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Level Exit
+      rect:
+        serializedVersion: 2
+        x: 7
+        y: 48
+        width: 19
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
