@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 72552fff798322b42a8f8f544bd72e50
-timeCreated: 1499119938
+timeCreated: 1499890825
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -18,6 +18,10 @@ TextureImporter:
     21300022: Sword
     21300024: DoubleJumpPowerUp
     21300026: Level Exit
+    21300028: NPC_1
+    21300030: NPC_2
+    21300032: NPC_3
+    21300034: NPC_4
   serializedVersion: 4
   mipmaps:
     mipMapMode: 0
@@ -260,6 +264,58 @@ TextureImporter:
         y: 48
         width: 19
         height: 28
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: NPC_1
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 49
+        width: 16
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: NPC_2
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 49
+        width: 16
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: NPC_3
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 49
+        width: 16
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: NPC_4
+      rect:
+        serializedVersion: 2
+        x: 112
+        y: 49
+        width: 16
+        height: 14
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
