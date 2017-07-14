@@ -26,7 +26,7 @@ public class HurtPlayerOnContact : MonoBehaviour {
         if (other.name == "Player") {
             activationCounter++;
             if (activationCounter >= activationLayer || !multipleTriggersLayers) {
-               // HealthManager.hurtPlayer(damageToGive);
+                HealthManager.hurtPlayer(damageToGive);
                 other.GetComponents<AudioSource>()[0].Play();
 
                 var player = other.GetComponent<PlayerController>(); //tratamento do knockback começa aqui
