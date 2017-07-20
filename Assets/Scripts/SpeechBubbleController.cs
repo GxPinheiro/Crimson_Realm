@@ -5,19 +5,25 @@ using UnityEngine.UI;
 
 public class SpeechBubbleController : MonoBehaviour
 {
+    public bool healPlayer;
 
-    public int activationCounter;
+    private int activationCounter;
 
     public int autoActivationLayer;
 
-    public bool playerCloseEnough;
+    private bool playerCloseEnough;
     public int buttonPressActivationLayer;
 
     private Text autoText;
     private Text buttonPressText;
 
+    public GameObject player;
+
+    private HealthManager healthManager;
+
     // Use this for initialization
     void Start() {
+        healthManager = FindObjectOfType<HealthManager>();
         activationCounter = 0;
         autoText = gameObject.GetComponentsInChildren<Text>()[0];
         buttonPressText = gameObject.GetComponentsInChildren<Text>()[1];
@@ -31,9 +37,13 @@ public class SpeechBubbleController : MonoBehaviour
     void Update() {
         //ativa o texto "buttonPress" na camada correpondente a ele
         //uma ver ativo, o texto "buttonPress" não some até o personagem se afastar da camada mais externa
-        if (Input.GetKeyDown(KeyCode.UpArrow) && playerCloseEnough && buttonPressText.text != "") {
-            autoText.enabled = false;
-            buttonPressText.enabled = true;
+        if (Input.GetKeyDown(KeyCode.UpArrow)) {
+            if (playerCloseEnough && buttonPressText.text != "") {
+                autoText.enabled = false;
+                buttonPressText.enabled = true;
+            }
+            if (healPlayer)
+                healthManager.fullHealth();
         }
     }
 
@@ -45,8 +55,9 @@ public class SpeechBubbleController : MonoBehaviour
             if (activationCounter >= autoActivationLayer && !buttonPressText.enabled)
                 autoText.enabled = true;
             //ativa a flag para que o texto apareça com o apertar de um botão (da camada button flag)
-            if (activationCounter >= buttonPressActivationLayer)
+            if (activationCounter >= buttonPressActivationLayer) {
                 playerCloseEnough = true;
+            }
         }
     }
 

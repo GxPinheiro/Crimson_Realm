@@ -18,7 +18,7 @@ public class LevelManager : MonoBehaviour {
 
     private float playerGravityStore;
 
-    public HealthManager healthManager;
+    private HealthManager healthManager;
 
 	// Use this for initialization
 	void Start () {
